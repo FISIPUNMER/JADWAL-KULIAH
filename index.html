@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Manajemen Dosen</title>
+        <title>Manajemen Dosen Matkul</title>
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -28,15 +27,15 @@
     </head>
     <body>
         <div class="container mt-5">
-            <h2>Manajemen Dosen</h2>
+            <h2>Manajemen Dosen Matkul</h2>
             <div class="row mb-4">
                 <div class="col">
                     <button
                         class="btn btn-primary"
                         data-toggle="modal"
-                        data-target="#addDosenModal"
+                        data-target="#addDosenMatkulModal"
                     >
-                        <i class="fas fa-plus"></i> Tambah Dosen
+                        <i class="fas fa-plus"></i> Tambah Dosen Matkul
                     </button>
                     <button
                         class="btn btn-warning"
@@ -57,32 +56,28 @@
                             class="form-check-input"
                             type="radio"
                             name="searchColumn"
-                            value="nama_dosen"
+                            value="dosen"
                             checked
                         />
-                        <label class="form-check-label" for="searchNama"
-                            >Nama Dosen</label
-                        >
+                        <label class="form-check-label">Nama Dosen</label>
                     </div>
                     <div class="form-check">
                         <input
                             class="form-check-input"
                             type="radio"
                             name="searchColumn"
-                            value="nid"
+                            value="matkul"
                         />
-                        <label class="form-check-label" for="searchNID"
-                            >NID</label
-                        >
+                        <label class="form-check-label">Nama Matkul</label>
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered" id="dosenTable">
+            <table class="table table-bordered" id="dosenMatkulTable">
                 <thead>
                     <tr>
-                        <th>ID Dosen</th>
+                        <th>ID Dosen Matkul</th>
                         <th>Nama Dosen</th>
-                        <th>NID</th>
+                        <th>Nama Matkul</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -92,12 +87,12 @@
             </table>
         </div>
 
-        <!-- Modal Tambah Dosen -->
-        <div class="modal" id="addDosenModal">
+        <!-- Modal Tambah Dosen Matkul -->
+        <div class="modal" id="addDosenMatkulModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Dosen</h4>
+                        <h4 class="modal-title">Tambah Dosen Matkul</h4>
                         <button
                             type="button"
                             class="close"
@@ -107,26 +102,24 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="addDosenForm">
+                        <form id="addDosenMatkulForm">
                             <div class="form-group">
-                                <label for="nama_dosen">Nama Dosen:</label>
-                                <input
-                                    type="text"
+                                <label for="id_dosen">Nama Dosen:</label>
+                                <select
                                     class="form-control"
-                                    id="nama_dosen"
-                                    name="nama_dosen"
+                                    id="id_dosen"
+                                    name="id_dosen"
                                     required
-                                />
+                                ></select>
                             </div>
                             <div class="form-group">
-                                <label for="nid">NID:</label>
-                                <input
-                                    type="number"
+                                <label for="id_matkul">Nama Matkul:</label>
+                                <select
                                     class="form-control"
-                                    id="nid"
-                                    name="nid"
+                                    id="id_matkul"
+                                    name="id_matkul"
                                     required
-                                />
+                                ></select>
                             </div>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-save"></i> Tambah
@@ -137,12 +130,12 @@
             </div>
         </div>
 
-        <!-- Modal Edit Dosen -->
-        <div class="modal" id="editDosenModal">
+        <!-- Modal Edit Dosen Matkul -->
+        <div class="modal" id="editDosenMatkulModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit Dosen</h4>
+                        <h4 class="modal-title">Edit Dosen Matkul</h4>
                         <button
                             type="button"
                             class="close"
@@ -152,31 +145,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="editDosenForm">
+                        <form id="editDosenMatkulForm">
                             <input
                                 type="hidden"
-                                id="editIdDosen"
-                                name="id_dosen"
+                                id="editIdDosenMatkul"
+                                name="id_dosenmatkul"
                             />
                             <div class="form-group">
-                                <label for="editNamaDosen">Nama Dosen:</label>
-                                <input
-                                    type="text"
+                                <label for="editIdDosen">Nama Dosen:</label>
+                                <select
                                     class="form-control"
-                                    id="editNamaDosen"
-                                    name="nama_dosen"
+                                    id="editIdDosen"
+                                    name="id_dosen"
                                     required
-                                />
+                                ></select>
                             </div>
                             <div class="form-group">
-                                <label for="editNid">NID:</label>
-                                <input
-                                    type="number"
+                                <label for="editIdMatkul">Nama Matkul:</label>
+                                <select
                                     class="form-control"
-                                    id="editNid"
-                                    name="nid"
+                                    id="editIdMatkul"
+                                    name="id_matkul"
                                     required
-                                />
+                                ></select>
                             </div>
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-save"></i> Update
@@ -187,12 +178,12 @@
             </div>
         </div>
 
-        <!-- Modal Hapus Dosen -->
-        <div class="modal" id="deleteDosenModal">
+        <!-- Modal Hapus Dosen Matkul -->
+        <div class="modal" id="deleteDosenMatkulModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Hapus Dosen</h4>
+                        <h4 class="modal-title">Hapus Dosen Matkul</h4>
                         <button
                             type="button"
                             class="close"
@@ -202,9 +193,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Apakah Anda yakin ingin menghapus dosen ini?</p>
+                        <p>Apakah Anda yakin ingin menghapus data ini?</p>
                         <button id="confirmDelete" class="btn btn-danger">
-                            <i class="fas fa-trash"></i> Hapus
+                            <i class="fas fa-trash-alt"></i> Hapus
                         </button>
                     </div>
                 </div>
@@ -232,7 +223,6 @@
                 new Date().getFullYear();
         </script>
 
-        <script src="dosen.js"></script>
+        <script src="dosen_matkul.js"></script>
     </body>
 </html>
-

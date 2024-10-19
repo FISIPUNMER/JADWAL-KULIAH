@@ -1,11 +1,11 @@
 <?php
 include 'db_connection.php'; // Menghubungkan ke database
 
-$query = "SELECT * FROM dosen";
+$query = "SELECT * FROM matkul";
 $result = $conn->query($query);
 
 while ($row = $result->fetch_assoc()) {
-    echo '<option value="' . $row['id_dosen'] . '">' . strtoupper($row['nama_dosen']) . '</option>';
+    echo '<option value="' . $row['id_matkul'] . '">' . strtoupper($row['nama_matkul']) . '</option>';
 }
 
 $conn->close();
