@@ -1,5 +1,5 @@
 <?php
-include 'db_connection.php'; // Menghubungkan ke database
+include 'db_connection.php';
 
 $query = "SELECT * FROM dosen";
 $result = $conn->query($query);

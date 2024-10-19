@@ -1,4 +1,5 @@
 <?php
+// Konfigurasi database
 $servername = "localhost";  // Ganti dengan host server database Anda
 $username = "root";         // Ganti dengan username database Anda
 $password = "";             // Ganti dengan password database Anda
