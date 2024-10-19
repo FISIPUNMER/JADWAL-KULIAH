@@ -1,8 +1,11 @@
 <?php
 include 'db_connection.php';
 
-$query = "SELECT * FROM matkul";
-$result = mysqli_query($conn, $query);
+$query = $_GET['query'];
+$column = $_GET['column'];
+
+$sql = "SELECT * FROM matkul WHERE $column LIKE '%$query%'";
+$result = mysqli_query($conn, $sql);
 
 $output = '';
 while ($row = mysqli_fetch_assoc($result)) {
