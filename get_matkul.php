@@ -1,11 +1,12 @@
 <?php
-include 'db_connection.php';
+include 'db.php';
 
 $query = "SELECT * FROM matkul";
-$result = $conn->query($query);
+$result = mysqli_query($conn, $query);
+$options = '';
 
-while ($row = $result->fetch_assoc()) {
-    echo '<option value="' . $row['id_matkul'] . '">' . strtoupper($row['nama_matkul']) . '</option>';
+while ($row = mysqli_fetch_assoc($result)) {
+    $options .= "<option value='{$row['id_matkul']}'>{$row['nama_matkul']}</option>";
 }
 
-$conn->close();
+echo $options;

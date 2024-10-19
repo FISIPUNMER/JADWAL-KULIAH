@@ -1,20 +1,12 @@
 <?php
-include 'db_connection.php';
+include 'db.php';
 
-$sql = "SELECT * FROM kelas";
-$result = mysqli_query($conn, $sql);
-$kelas_data = '';
+$query = "SELECT * FROM kelas";
+$result = mysqli_query($conn, $query);
+$options = '';
 
 while ($row = mysqli_fetch_assoc($result)) {
-    $kelas_data .= '<tr>';
-    $kelas_data .= '<td>' . $row['id_kelas'] . '</td>';
-    $kelas_data .= '<td>' . $row['nama_kelas'] . '</td>';
-    $kelas_data .= '<td>' . $row['kapasitas'] . '</td>';
-    $kelas_data .= '<td>
-        <button class="btn btn-warning edit-btn" data-id="' . $row['id_kelas'] . '"><i class="fas fa-edit"></i> Edit</button>
-        <button class="btn btn-danger delete-btn" data-id="' . $row['id_kelas'] . '"><i class="fas fa-trash"></i> Hapus</button>
-    </td>';
-    $kelas_data .= '</tr>';
+    $options .= "<option value='{$row['id_kelas']}'>{$row['nama_kelas']}</option>";
 }
 
-echo $kelas_data;
+echo $options;
