@@ -1,7 +1,10 @@
 <?php
 include 'db_connection.php';
 
-$sql = "SELECT id_ruangan, nama_ruangan, kapasitas FROM ruangan";
+$query = strtolower($_GET['query']);
+$column = $_GET['column'];
+
+$sql = "SELECT id_ruangan, nama_ruangan, kapasitas FROM ruangan WHERE LOWER($column) LIKE '%$query%'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

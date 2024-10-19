@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Manajemen Matkul</title>
+        <title>Manajemen Ruangan</title>
         <link
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -28,15 +28,15 @@
     </head>
     <body>
         <div class="container mt-5">
-            <h2>Manajemen Matkul</h2>
+            <h2>Manajemen Ruangan</h2>
             <div class="row mb-4">
                 <div class="col">
                     <button
                         class="btn btn-primary"
                         data-toggle="modal"
-                        data-target="#addMatkulModal"
+                        data-target="#addRuanganModal"
                     >
-                        <i class="fas fa-plus"></i> Tambah Matkul
+                        <i class="fas fa-plus"></i> Tambah Ruangan
                     </button>
                     <button
                         class="btn btn-warning"
@@ -57,21 +57,32 @@
                             class="form-check-input"
                             type="radio"
                             name="searchColumn"
-                            value="nama_matkul"
+                            value="nama_ruangan"
                             checked
                         />
                         <label class="form-check-label" for="searchNama"
-                            >Nama Matkul</label
+                            >Nama Ruangan</label
+                        >
+                    </div>
+                    <div class="form-check">
+                        <input
+                            class="form-check-input"
+                            type="radio"
+                            name="searchColumn"
+                            value="kapasitas"
+                        />
+                        <label class="form-check-label" for="searchKapasitas"
+                            >Kapasitas</label
                         >
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered" id="matkulTable">
+            <table class="table table-bordered" id="ruanganTable">
                 <thead>
                     <tr>
-                        <th>ID Matkul</th>
-                        <th>Nama Matkul</th>
-                        <th>SKS</th>
+                        <th>ID Ruangan</th>
+                        <th>Nama Ruangan</th>
+                        <th>Kapasitas</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -81,12 +92,12 @@
             </table>
         </div>
 
-        <!-- Modal Tambah Matkul -->
-        <div class="modal" id="addMatkulModal">
+        <!-- Modal Tambah Ruangan -->
+        <div class="modal" id="addRuanganModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Tambah Matkul</h4>
+                        <h4 class="modal-title">Tambah Ruangan</h4>
                         <button
                             type="button"
                             class="close"
@@ -96,24 +107,24 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="addMatkulForm">
+                        <form id="addRuanganForm">
                             <div class="form-group">
-                                <label for="nama_matkul">Nama Matkul:</label>
+                                <label for="nama_ruangan">Nama Ruangan:</label>
                                 <input
                                     type="text"
                                     class="form-control"
-                                    id="nama_matkul"
-                                    name="nama_matkul"
+                                    id="nama_ruangan"
+                                    name="nama_ruangan"
                                     required
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="sks">SKS:</label>
+                                <label for="kapasitas">Kapasitas:</label>
                                 <input
                                     type="number"
                                     class="form-control"
-                                    id="sks"
-                                    name="sks"
+                                    id="kapasitas"
+                                    name="kapasitas"
                                     required
                                 />
                             </div>
@@ -126,12 +137,12 @@
             </div>
         </div>
 
-        <!-- Modal Edit Matkul -->
-        <div class="modal" id="editMatkulModal">
+        <!-- Modal Edit Ruangan -->
+        <div class="modal" id="editRuanganModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Edit Matkul</h4>
+                        <h4 class="modal-title">Edit Ruangan</h4>
                         <button
                             type="button"
                             class="close"
@@ -141,29 +152,31 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="editMatkulForm">
+                        <form id="editRuanganForm">
                             <input
                                 type="hidden"
-                                id="editIdMatkul"
-                                name="id_matkul"
+                                id="editIdRuangan"
+                                name="id_ruangan"
                             />
                             <div class="form-group">
-                                <label for="editNamaMatkul">Nama Matkul:</label>
+                                <label for="editNamaRuangan"
+                                    >Nama Ruangan:</label
+                                >
                                 <input
                                     type="text"
                                     class="form-control"
-                                    id="editNamaMatkul"
-                                    name="nama_matkul"
+                                    id="editNamaRuangan"
+                                    name="nama_ruangan"
                                     required
                                 />
                             </div>
                             <div class="form-group">
-                                <label for="editSks">SKS:</label>
+                                <label for="editKapasitas">Kapasitas:</label>
                                 <input
                                     type="number"
                                     class="form-control"
-                                    id="editSks"
-                                    name="sks"
+                                    id="editKapasitas"
+                                    name="kapasitas"
                                     required
                                 />
                             </div>
@@ -176,12 +189,12 @@
             </div>
         </div>
 
-        <!-- Modal Hapus Matkul -->
-        <div class="modal" id="deleteMatkulModal">
+        <!-- Modal Hapus Ruangan -->
+        <div class="modal" id="deleteRuanganModal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Hapus Matkul</h4>
+                        <h4 class="modal-title">Hapus Ruangan</h4>
                         <button
                             type="button"
                             class="close"
@@ -191,7 +204,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>Apakah Anda yakin ingin menghapus matkul ini?</p>
+                        <p>Apakah Anda yakin ingin menghapus ruangan ini?</p>
                         <button id="confirmDelete" class="btn btn-danger">
                             <i class="fas fa-trash"></i> Hapus
                         </button>
@@ -221,7 +234,7 @@
                 new Date().getFullYear();
         </script>
 
-        <script src="matkul.js"></script>
+        <script src="ruangan.js"></script>
     </body>
 </html>
 
