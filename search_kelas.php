@@ -1,7 +1,10 @@
 <?php
 include 'db_connection.php';
 
-$sql = "SELECT * FROM kelas";
+$query = $_GET['query'];
+$column = $_GET['column'];
+
+$sql = "SELECT * FROM kelas WHERE $column LIKE '%$query%'";
 $result = mysqli_query($conn, $sql);
 $kelas_data = '';
 
